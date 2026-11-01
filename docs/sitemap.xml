@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://ah00ra0.github.io/learn-rust/</loc><lastmod>2026-11-01</lastmod><priority>1.0</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/01-install.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/02-hello-cargo.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/03-variables.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/04-data-types.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/05-functions.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/06-control-flow.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/07-ownership.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/08-borrowing.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/09-slices.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/10-structs.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/11-enums.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/12-collections.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/13-modules.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/14-errors.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/15-generics.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/16-traits.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/17-lifetimes.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/18-closures.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/19-iterators.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/20-smart-pointers.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/21-concurrency.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/22-patterns.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/23-testing.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/24-trait-objects.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/25-macros.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/26-async.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/27-unsafe.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/28-project-grep.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/29-next-steps.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/glossary.html</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
+</urlset>

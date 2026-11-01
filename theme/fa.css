@@ -1,0 +1,45 @@
+@import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css");
+
+:root {
+  --fa-font: "Vazirmatn", Tahoma, "Segoe UI", sans-serif;
+}
+
+body,
+.content main,
+.menu-title,
+#mdbook-sidebar,
+#mdbook-menu-bar {
+  font-family: var(--fa-font);
+}
+
+.content main {
+  line-height: 2;
+  font-size: 1.7rem;
+}
+
+/* کد همیشه چپ‌به‌راست */
+pre,
+pre > code,
+code,
+.hljs {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: isolate;
+  font-family: "Source Code Pro", Consolas, Menlo, monospace;
+}
+
+pre {
+  direction: ltr;
+}
+
+/* کادر نکته/هشدار */
+blockquote {
+  border-inline-start: 4px solid #dea584;
+  border-inline-end: none;
+  background: rgba(222, 165, 132, 0.12);
+  padding: 0.6em 1.2em;
+}
+
+table {
+  margin-inline: auto;
+}

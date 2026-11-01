@@ -1,0 +1,31 @@
+[book]
+title = "آموزش جامع Rust (راست) به زبان فارسی"
+description = "آموزش کامل و رایگان زبان برنامه‌نویسی Rust به فارسی: از نصب و Hello World تا ownership، trait، lifetime، concurrency و ساخت پروژه واقعی. مناسب مبتدی تا حرفه‌ای."
+authors = ["ah00ra0"]
+language = "fa"
+text-direction = "rtl"
+src = "chapters"
+
+[rust]
+edition = "2024"
+
+[build]
+build-dir = "docs"
+
+[output.html]
+site-url = "/learn-rust/"
+git-repository-url = "https://github.com/ah00ra0/learn-rust"
+edit-url-template = "https://github.com/ah00ra0/learn-rust/edit/main/{path}"
+additional-css = ["theme/fa.css"]
+default-theme = "light"
+preferred-dark-theme = "navy"
+smart-punctuation = false
+
+[output.html.playground]
+editable = false
+copyable = true
+runnable = true
+
+[output.html.search]
+enable = true
+limit-results = 20

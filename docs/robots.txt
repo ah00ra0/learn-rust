@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ah00ra0.github.io/learn-rust/sitemap.xml
