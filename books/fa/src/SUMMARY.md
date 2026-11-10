@@ -19,6 +19,7 @@
 - [Ownership (مالکیت)](07-ownership.md)
 - [Reference و Borrowing (قرض‌گیری)](08-borrowing.md)
 - [Slice](09-slices.md)
+- [کتاب آشپزی خطاهای کامپایلر](compiler-errors-cookbook.md)
 
 # ساختارهای داده
 
@@ -35,6 +36,7 @@
 
 - [Generics](15-generics.md)
 - [Trait](16-traits.md)
+- [Trait های مهم std و تبدیل انواع](std-traits-conversions.md)
 - [Lifetime](17-lifetimes.md)
 
 # سبک تابعی
