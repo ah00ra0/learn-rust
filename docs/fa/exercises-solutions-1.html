@@ -1,0 +1,925 @@
+<!DOCTYPE HTML>
+<html lang="fa" class="light sidebar-visible" dir="rtl">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>پاسخ تمرین‌ها (بخش ۱): فصل‌های ۲ تا ۱۲ - آموزش جامع Rust (راست) به زبان فارسی</title>
+
+
+        <!-- Custom HTML head -->
+        <meta name="description" content="آموزش رایگان و کامل زبان Rust (راست) به فارسی: نصب، ownership، borrowing، trait، lifetime، concurrency، async و پروژه عملی. مناسب مبتدی تا پیشرفته.">
+        <meta name="keywords" content="آموزش Rust, آموزش راست, یادگیری Rust, آموزش Rust فارسی, زبان برنامه‌نویسی Rust, Rust برای مبتدی, ownership, borrowing, cargo, آموزش رایگان Rust">
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="fa_IR">
+        <meta property="og:site_name" content="آموزش جامع Rust به فارسی">
+        <meta property="og:title" content="آموزش جامع Rust (راست) به زبان فارسی">
+        <meta property="og:description" content="آموزش رایگان و کامل زبان Rust (راست) به فارسی: نصب، ownership، borrowing، trait، lifetime، concurrency، async و پروژه عملی. مناسب مبتدی تا پیشرفته.">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="آموزش جامع Rust (راست) به زبان فارسی">
+        <meta name="twitter:description" content="آموزش رایگان و کامل زبان Rust (راست) به فارسی: نصب، ownership، borrowing، trait، lifetime، concurrency، async و پروژه عملی. مناسب مبتدی تا پیشرفته.">
+        <link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/">
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": "آموزش جامع Rust (راست) به زبان فارسی",
+          "description": "آموزش رایگان و کامل زبان Rust (راست) به فارسی: نصب، ownership، borrowing، trait، lifetime، concurrency، async و پروژه عملی. مناسب مبتدی تا پیشرفته.",
+          "inLanguage": "fa",
+          "isAccessibleForFree": true,
+          "url": "https://ah00ra0.github.io/learn-rust/fa/",
+          "provider": { "@type": "Person", "name": "ah00ra0", "url": "https://github.com/ah00ra0" }
+        }
+        </script>
+
+        <meta name="description" content="آموزش رایگان و کامل زبان Rust (راست) به فارسی: نصب، ownership، borrowing، trait، lifetime، concurrency، async و پروژه عملی. مناسب مبتدی تا پیشرفته.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/base-d938b20f.css">
+        <link rel="stylesheet" href="theme/rtl-eedac683.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-8483c292.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-ebfa0364.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">آموزش جامع Rust (راست) به زبان فارسی</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/ah00ra0/learn-rust" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/ah00ra0/learn-rust/edit/main/books/fa/src/src/exercises-solutions-1.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <span class=fa-svg id="git-edit-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M421.7 220.3l-11.3 11.3-22.6 22.6-205 205c-6.6 6.6-14.8 11.5-23.8 14.1L30.8 511c-8.4 2.5-17.5 .2-23.7-6.1S-1.5 489.7 1 481.2L38.7 353.1c2.6-9 7.5-17.2 14.1-23.8l205-205 22.6-22.6 11.3-11.3 33.9 33.9 62.1 62.1 33.9 33.9zM96 353.9l-9.3 9.3c-.9 .9-1.6 2.1-2 3.4l-25.3 86 86-25.3c1.3-.4 2.5-1.1 3.4-2l9.3-9.3H112c-8.8 0-16-7.2-16-16V353.9zM453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-14.5 14.5-22.6 22.6-11.3 11.3-33.9-33.9-62.1-62.1L314.3 67.7l11.3-11.3 22.6-22.6 14.5-14.5c25-25 65.5-25 90.5 0z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="پاسخ-تمرینها-بخش-۱-فصلهای-۲-تا-۱۲"><a class="header" href="#پاسخ-تمرینها-بخش-۱-فصلهای-۲-تا-۱۲">پاسخ تمرین‌ها (بخش ۱): فصل‌های ۲ تا ۱۲</a></h1>
+<p>این صفحه پاسخ تمرین‌های انتهای فصل‌های ۲ تا ۱۲ را دارد. پیشنهاد جدی: <strong>اول خودتان تمرین را حل کنید</strong>، حتی اگر ناقص بود، و بعد پاسخ را ببینید. یادگیری Rust بیشتر از هر چیز از جنگیدن با کامپایلر می‌آید، نه از خواندن راه‌حل آماده.</p>
+<p>چند نکته درباره‌ی پاسخ‌ها:</p>
+<ul>
+<li>هر پاسخ فقط <strong>یک</strong> راه‌حل ممکن است. اگر راه‌حل شما متفاوت اما درست بود، اشکالی ندارد.</li>
+<li>همه‌ی بلوک‌های <code>rust</code> این صفحه با <code>mdbook test</code> کامپایل و اجرا می‌شوند. جایی که از <code>assert!</code> و <code>assert_eq!</code> استفاده شده، یعنی نتیجه واقعاً بررسی شده است.</li>
+<li>تمرین‌هایی که ذاتاً «خطای کامپایلر را بخوانید» هستند با برچسب <code>compile_fail</code> آمده‌اند: این بلوک‌ها <strong>عمداً</strong> کامپایل نمی‌شوند و mdBook همین را تأیید می‌کند.</li>
+<li>فصل ۱ (نصب) تمرین ندارد.</li>
+</ul>
+<hr>
+<h2 id="فصل-۲-hello-world-و-cargo"><a class="header" href="#فصل-۲-hello-world-و-cargo"><a href="02-hello-cargo.html">فصل ۲: Hello World و Cargo</a></a></h2>
+<p><strong>تمرین ۱ تا ۴.</strong> این تمرین‌ها در ترمینال انجام می‌شوند:</p>
+<pre><code class="language-bash">cargo new my_first
+cd my_first
+cargo run
+</code></pre>
+<p>فایل <code>src/main.rs</code> را این‌طور تغییر دهید (نام خودتان را بگذارید و سه خط چاپ کنید):</p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    println!("سلام، من آهورا هستم!");
+    println!("این خط دوم است.");
+    println!("و این خط سوم.");
+}</code></pre>
+<p>برای بیلد release:</p>
+<pre><code class="language-bash">cargo build --release
+</code></pre>
+<p>فایل اجرایی در <code>target/release/my_first</code> است (در ویندوز <code>target\release\my_first.exe</code>). اگر <code>CARGO_TARGET_DIR</code> یا تنظیمات workspace تغییر داده شده باشد، محل <code>target</code> هم تغییر می‌کند. دستور <code>cargo build --release --message-format short</code> یا اجرای <code>cargo metadata</code> محل دقیق را نشان می‌دهد.</p>
+<hr>
+<h2 id="فصل-۳-متغیرها-و-تغییرپذیری"><a class="header" href="#فصل-۳-متغیرها-و-تغییرپذیری"><a href="03-variables.html">فصل ۳: متغیرها و تغییرپذیری</a></a></h2>
+<p><strong>تمرین ۱.</strong> تغییر دادن متغیر immutable خطای <code>E0384</code> می‌دهد:</p>
+<pre class="playground"><code class="language-rust compile_fail edition2024">fn main() {
+    let x = 5;
+    println!("x = {x}");
+    x = 6; // error[E0384]: cannot assign twice to immutable variable `x`
+    println!("x = {x}");
+}</code></pre>
+<p>پیام کامپایلر می‌گوید «نمی‌توان دو بار به متغیر immutable مقدار داد» و پیشنهاد می‌کند <code>let mut x</code> بنویسید. بخوانید: کامپایلر Rust معمولاً راه‌حل را هم می‌گوید.</p>
+<p><strong>تمرین ۲.</strong> با <code>mut</code>:</p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    let mut x = 5;
+    x = 6;
+    x += 1;
+    assert_eq!(x, 7);
+}</code></pre>
+<p><strong>تمرین ۳.</strong> <code>const</code> باید نوع صریح داشته باشد و نامش به‌صورت <code>SCREAMING_SNAKE_CASE</code> است:</p>
+<pre class="playground"><code class="language-rust edition2024">const PI: f64 = 3.14159;
+
+fn main() {
+    let radius = 5.0;
+    let area = PI * radius * radius;
+    println!("مساحت: {area}");
+    assert!((area - 78.53975).abs() &lt; 1e-9);
+}</code></pre>
+<blockquote>
+<p><strong>نکته:</strong> در کد واقعی <code>std::f64::consts::PI</code> دقیق‌تر است و نیازی به تعریف ثابت خودتان نیست. اینجا فقط برای تمرین <code>const</code> خواسته شده بود.</p>
+</blockquote>
+<p><strong>تمرین ۴.</strong> shadowing اجازه می‌دهد با همان نام، نوع را عوض کنید (برخلاف <code>mut</code> که نوع را ثابت نگه می‌دارد):</p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    let value = "42";
+    let value = value.parse::&lt;i32&gt;().unwrap(); // اینجا مقدار ثابت و مطمئن است
+    assert_eq!(value + 1, 43);
+}</code></pre>
+<blockquote>
+<p><strong>هشدار:</strong> <code>unwrap</code> اینجا فقط چون رشته‌ی ثابت <code>"42"</code> است قابل قبول است. برای ورودی کاربر از <code>match</code> یا <code>?</code> استفاده کنید (<a href="14-errors.html">فصل ۱۴</a>).</p>
+</blockquote>
+<hr>
+<h2 id="فصل-۴-انواع-داده"><a class="header" href="#فصل-۴-انواع-داده"><a href="04-data-types.html">فصل ۴: انواع داده</a></a></h2>
+<p><strong>تمرین ۱.</strong> <code>checked_add</code> در سرریز <code>None</code> برمی‌گرداند و panic نمی‌کند:</p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    let x: u8 = 255;
+    assert_eq!(x.checked_add(1), None);
+    assert_eq!(x.checked_add(0), Some(255));
+    // گزینه‌های دیگر برای مدیریت سرریز:
+    assert_eq!(x.wrapping_add(1), 0);
+    assert_eq!(x.saturating_add(1), 255);
+    assert_eq!(x.overflowing_add(1), (0, true));
+}</code></pre>
+<p><strong>تمرین ۲.</strong> tuple و destructuring:</p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    let user = ("علی", 29_u32, 87.5_f64);
+    let (name, age, score) = user;
+    println!("{name} ({age} ساله) امتیاز {score}");
+    assert_eq!(user.1, 29);
+}</code></pre>
+<p><strong>تمرین ۳.</strong></p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    let days = [
+        "شنبه", "یکشنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنجشنبه", "جمعه",
+    ];
+    // اندیس از صفر شروع می‌شود، پس روز سوم اندیس ۲ است
+    println!("{}", days[2]);
+    assert_eq!(days[2], "دوشنبه");
+    assert_eq!(days.len(), 7);
+}</code></pre>
+<p><strong>تمرین ۴.</strong> Rust هیچ تبدیل عددی ضمنی انجام نمی‌دهد، حتی از نوع کوچک‌تر به بزرگ‌تر:</p>
+<pre class="playground"><code class="language-rust compile_fail edition2024">fn main() {
+    let x: i32 = 5;
+    let y: i64 = x; // error[E0308]: mismatched types
+    println!("{y}");
+}</code></pre>
+<p>سه راه درست:</p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    let x: i32 = 5;
+    let a: i64 = i64::from(x); // ایمن: تبدیل بدون از دست رفتن اطلاعات (From)
+    let b: i64 = x.into();     // همان، با inference
+    let c = x as i64;          // cast صریح؛ برای تبدیل‌های «لب‌به‌لب» دقت کنید
+    assert_eq!((a, b, c), (5, 5, 5));
+}</code></pre>
+<p>قاعده‌ی سرانگشتی: وقتی تبدیل همیشه امن است <code>From/Into</code>، وقتی ممکن است شکست بخورد <code>TryFrom</code> (مثلاً <code>u8::try_from(300_i32)</code> یک <code>Err</code> می‌دهد) و <code>as</code> را فقط وقتی رفتار برش‌دادن (truncation) را می‌خواهید.</p>
+<hr>
+<h2 id="فصل-۵-توابع-و-کامنتها"><a class="header" href="#فصل-۵-توابع-و-کامنتها"><a href="05-functions.html">فصل ۵: توابع و کامنت‌ها</a></a></h2>
+<p><strong>تمرین ۱.</strong></p>
+<pre class="playground"><code class="language-rust edition2024">fn celsius_to_fahrenheit(c: f64) -&gt; f64 {
+    c * 9.0 / 5.0 + 32.0
+}
+
+fn main() {
+    assert_eq!(celsius_to_fahrenheit(0.0), 32.0);
+    assert_eq!(celsius_to_fahrenheit(100.0), 212.0);
+    assert_eq!(celsius_to_fahrenheit(-40.0), -40.0);
+}</code></pre>
+<p>به‌جای <code>9/5</code> که در اعداد صحیح می‌شود <code>1</code>، از <code>9.0 / 5.0</code> استفاده کردیم. اگر ورودی را <code>i32</code> بگیرید باید این نکته را در نظر بگیرید.</p>
+<p><strong>تمرین ۲.</strong> برگرداندن چند مقدار با tuple:</p>
+<pre class="playground"><code class="language-rust edition2024">fn square_and_cube(n: i32) -&gt; (i32, i32) {
+    (n * n, n * n * n)
+}
+
+fn main() {
+    let (sq, cu) = square_and_cube(3);
+    assert_eq!((sq, cu), (9, 27));
+}</code></pre>
+<p><strong>تمرین ۳.</strong> فیبوناچی با <code>if</code> و <code>return</code> (نسخه‌ی تکراری، نه بازگشتی، چون بازگشتی ساده برای n بزرگ نمایی کند می‌شود):</p>
+<pre class="playground"><code class="language-rust edition2024">fn fib(n: u32) -&gt; u64 {
+    if n == 0 {
+        return 0;
+    }
+    let (mut prev, mut curr) = (0u64, 1u64);
+    for _ in 1..n {
+        let next = prev + curr;
+        prev = curr;
+        curr = next;
+    }
+    curr
+}
+
+fn main() {
+    assert_eq!(fib(0), 0);
+    assert_eq!(fib(1), 1);
+    assert_eq!(fib(10), 55);
+    assert_eq!(fib(50), 12_586_269_025);
+}</code></pre>
+<blockquote>
+<p><strong>نکته:</strong> <code>fib(94)</code> از <code>u64</code> بیشتر می‌شود. در حالت debug با panic روبه‌رو می‌شوید؛ برای کد واقعی <code>checked_add</code> به کار ببرید.</p>
+</blockquote>
+<p><strong>تمرین ۴.</strong> doc comment با مثال. آنچه بین سه بک‌تیک داخل <code>///</code> می‌آید، هنگام <code>cargo test</code> (بخش doc tests) اجرا می‌شود. چون داخل یک پروژه‌ی کتابخانه‌ای باید باشد تا تست شود، نسخه‌ی کامل در پروژه‌ی <a href="https://github.com/ah00ra0/learn-rust/tree/main/projects/exercises-solutions"><code>exercises-solutions</code></a> است (<code>src/lib.rs</code>). شکل کلی:</p>
+<pre><code class="language-rust ignore">/// دمای سانتی‌گراد را به فارنهایت تبدیل می‌کند.
+///
+/// # Examples
+///
+/// ```
+/// use exercises_solutions::celsius_to_fahrenheit;
+/// assert_eq!(celsius_to_fahrenheit(100.0), 212.0);
+/// ```
+pub fn celsius_to_fahrenheit(c: f64) -&gt; f64 {
+    c * 9.0 / 5.0 + 32.0
+}</code></pre>
+<hr>
+<h2 id="فصل-۶-کنترل-جریان"><a class="header" href="#فصل-۶-کنترل-جریان"><a href="06-control-flow.html">فصل ۶: کنترل جریان</a></a></h2>
+<p><strong>تمرین ۱.</strong> FizzBuzz. ترتیب شرط‌ها مهم است: حالت «هر دو» باید اول بیاید. <code>match</code> روی tuple این را زیبا می‌کند:</p>
+<pre class="playground"><code class="language-rust edition2024">fn fizzbuzz(n: u32) -&gt; String {
+    match (n % 3, n % 5) {
+        (0, 0) =&gt; "FizzBuzz".to_string(),
+        (0, _) =&gt; "Fizz".to_string(),
+        (_, 0) =&gt; "Buzz".to_string(),
+        _ =&gt; n.to_string(),
+    }
+}
+
+fn main() {
+    for n in 1..=100 {
+        println!("{}", fizzbuzz(n));
+    }
+    assert_eq!(fizzbuzz(15), "FizzBuzz");
+    assert_eq!(fizzbuzz(9), "Fizz");
+    assert_eq!(fizzbuzz(10), "Buzz");
+    assert_eq!(fizzbuzz(7), "7");
+}</code></pre>
+<p><strong>تمرین ۲.</strong> فاکتوریل ۱۰ با <code>while</code>:</p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    let mut n: u64 = 10;
+    let mut result: u64 = 1;
+    while n &gt; 1 {
+        result *= n;
+        n -= 1;
+    }
+    println!("10! = {result}");
+    assert_eq!(result, 3_628_800);
+}</code></pre>
+<p><strong>تمرین ۳.</strong> <code>loop</code> می‌تواند با <code>break مقدار</code> مقدار برگرداند:</p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    let mut n = 0u32;
+    let found = loop {
+        n += 1;
+        if n * n &gt; 1000 {
+            break n;
+        }
+    };
+    assert_eq!(found, 32); // 32 * 32 = 1024 و 31 * 31 = 961
+}</code></pre>
+<p><strong>تمرین ۴.</strong> جدول ضرب:</p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    for i in 1..=9 {
+        for j in 1..=9 {
+            print!("{:3}", i * j);
+        }
+        println!();
+    }
+}</code></pre>
+<p><code>{:3}</code> عدد را با عرض حداقل ۳ و راست‌چین چاپ می‌کند تا ستون‌ها تراز شوند.</p>
+<hr>
+<h2 id="فصل-۷-ownership"><a class="header" href="#فصل-۷-ownership"><a href="07-ownership.html">فصل ۷: Ownership</a></a></h2>
+<p><strong>تمرین ۱.</strong> خطای move:</p>
+<pre class="playground"><code class="language-rust compile_fail edition2024">fn main() {
+    let s1 = String::from("سلام");
+    let s2 = s1; // مالکیت از s1 به s2 منتقل شد
+    println!("{s1} {s2}"); // error[E0382]: borrow of moved value: `s1`
+}</code></pre>
+<p>پیام می‌گوید <code>s1</code> از نوع <code>String</code> است که <code>Copy</code> نیست، پس <code>let s2 = s1</code> آن را <strong>move</strong> کرده است. با <code>clone</code> یک کپی عمیق جدا می‌سازیم:</p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    let s1 = String::from("سلام");
+    let s2 = s1.clone();
+    println!("{s1} {s2}");
+    assert_eq!(s1, s2);
+}</code></pre>
+<p>(راه دیگر: اگر فقط خواندن لازم است، <code>let s2 = &amp;s1;</code> که قرض‌گیری است و کپی نمی‌کند.)</p>
+<p><strong>تمرین ۲.</strong> تابعی که مالکیت را می‌گیرد و پس می‌دهد:</p>
+<pre class="playground"><code class="language-rust edition2024">fn add_exclamation(mut s: String) -&gt; String {
+    s.push('!');
+    s
+}
+
+fn main() {
+    let s = String::from("سلام");
+    let s = add_exclamation(s); // shadowing؛ s قبلی move شده بود
+    assert_eq!(s, "سلام!");
+}</code></pre>
+<p>در عمل معمولاً <code>fn add_exclamation(s: &amp;mut String)</code> طبیعی‌تر است تا مالکیت رفت‌وبرگشت نکند (<a href="08-borrowing.html">فصل ۸</a>).</p>
+<p><strong>تمرین ۳.</strong> آرایه‌ی <code>[i32; 3]</code> نوعی است که <code>Copy</code> پیاده کرده؛ همه‌ی بایت‌هایش روی stack است و کپی بیت‌به‌بیت ارزان و امن است، پس <code>let b = a;</code> یک کپی می‌سازد و <code>a</code> همچنان معتبر می‌ماند. <code>Vec</code> اشاره‌گری به heap دارد؛ کپی بیت‌به‌بیت دو مالک برای یک بافر می‌سازد و باعث double free می‌شد، پس <code>Vec</code> فقط <code>Clone</code> است (کپی صریح و عمیق) و انتساب آن move است:</p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    let a = [1, 2, 3];
+    let b = a; // Copy
+    assert_eq!(a, b);
+
+    let v = vec![1, 2, 3];
+    let w = v; // Move
+    // println!("{v:?}"); // اگر فعال شود: E0382
+    assert_eq!(w, [1, 2, 3]);
+}</code></pre>
+<hr>
+<h2 id="فصل-۸-reference-و-borrowing"><a class="header" href="#فصل-۸-reference-و-borrowing"><a href="08-borrowing.html">فصل ۸: Reference و Borrowing</a></a></h2>
+<p><strong>تمرین ۱.</strong> در عمل پارامتر را <code>&amp;[i32]</code> بگیرید (چون <code>&amp;Vec&lt;i32&gt;</code> را هم می‌پذیرد، در <a href="09-slices.html">فصل ۹</a>) ولی چون تمرین <code>&amp;Vec&lt;i32&gt;</code> خواسته:</p>
+<pre class="playground"><code class="language-rust edition2024">fn sum(v: &amp;Vec&lt;i32&gt;) -&gt; i32 {
+    v.iter().sum()
+}
+
+fn main() {
+    let v = vec![1, 2, 3, 4];
+    assert_eq!(sum(&amp;v), 10);
+    assert_eq!(v.len(), 4); // v هنوز مال ماست
+}</code></pre>
+<blockquote>
+<p><strong>نکته:</strong> <code>clippy</code> در اینجا <code>ptr_arg</code> را هشدار می‌دهد و پیشنهاد می‌کند <code>&amp;[i32]</code> بگیرید؛ چون هر چه <code>&amp;Vec</code> می‌پذیرد، <code>&amp;[i32]</code> هم می‌پذیرد و بیشتر هم می‌پذیرد.</p>
+</blockquote>
+<p><strong>تمرین ۲.</strong></p>
+<pre class="playground"><code class="language-rust edition2024">fn push_end(v: &amp;mut Vec&lt;i32&gt;, x: i32) {
+    v.push(x);
+}
+
+fn main() {
+    let mut v = vec![1, 2];
+    push_end(&amp;mut v, 3);
+    assert_eq!(v, [1, 2, 3]);
+}</code></pre>
+<p><strong>تمرین ۳.</strong> دو <code>&amp;mut</code> همزمان:</p>
+<pre class="playground"><code class="language-rust compile_fail edition2024">fn main() {
+    let mut s = String::from("سلام");
+    let r1 = &amp;mut s;
+    let r2 = &amp;mut s; // error[E0499]: cannot borrow `s` as mutable more than once at a time
+    r1.push('!');
+    r2.push('?');
+}</code></pre>
+<p>کامپایلر اشاره می‌کند «اولین قرض mutable اینجاست» و «دومین اینجاست» و «اولین بعداً استفاده شده». قاعده: در هر لحظه یا یک <code>&amp;mut</code> یا چند <code>&amp;</code>. این قانون data race را در زمان کامپایل غیرممکن می‌کند. با NLL، اگر <code>r1</code> پیش از ساختن <code>r2</code> آخرین استفاده‌اش را کرده باشد، مشکلی نیست.</p>
+<p><strong>تمرین ۴.</strong> بزرگ‌ترین عدد به‌صورت reference. چون آرایه ممکن است خالی باشد، <code>Option&lt;&amp;i32&gt;</code> برمی‌گردانیم. با فقط یک پارامتر reference، lifetime elision خودش خروجی را به ورودی گره می‌زند و لازم نیست <code>'a</code> بنویسیم:</p>
+<pre class="playground"><code class="language-rust edition2024">fn largest(nums: &amp;[i32]) -&gt; Option&lt;&amp;i32&gt; {
+    let mut best = nums.first()?;
+    for n in nums {
+        if n &gt; best {
+            best = n;
+        }
+    }
+    Some(best)
+}
+
+fn main() {
+    let data = [3, 9, 2, 7];
+    assert_eq!(largest(&amp;data), Some(&amp;9));
+    assert_eq!(largest(&amp;[]), None);
+}</code></pre>
+<p>(معادل کوتاه: <code>nums.iter().max()</code>.)</p>
+<hr>
+<h2 id="فصل-۹-slice"><a class="header" href="#فصل-۹-slice"><a href="09-slices.html">فصل ۹: Slice</a></a></h2>
+<p><strong>تمرین ۱.</strong> دومین کلمه (برگرداندن <code>Option&lt;&amp;str&gt;</code> چون ممکن است وجود نداشته باشد):</p>
+<pre class="playground"><code class="language-rust edition2024">fn second_word(s: &amp;str) -&gt; Option&lt;&amp;str&gt; {
+    s.split_whitespace().nth(1)
+}
+
+fn main() {
+    assert_eq!(second_word("سلام دنیای زیبا"), Some("دنیای"));
+    assert_eq!(second_word("تنها"), None);
+    assert_eq!(second_word("   "), None);
+}</code></pre>
+<p><code>split_whitespace</code> چند فاصله‌ی پشت‌سرهم و tab و خط جدید را هم درست مدیریت می‌کند و تکه‌هایی از همان رشته‌ی اصلی (بدون کپی) برمی‌گرداند.</p>
+<p><strong>تمرین ۲.</strong></p>
+<pre class="playground"><code class="language-rust edition2024">fn max_of(nums: &amp;[i32]) -&gt; Option&lt;i32&gt; {
+    nums.iter().copied().max()
+}
+
+fn main() {
+    assert_eq!(max_of(&amp;[4, 8, 1]), Some(8));
+    assert_eq!(max_of(&amp;[]), None);
+}</code></pre>
+<p><strong>تمرین ۳.</strong> <code>len()</code> تعداد <strong>بایت</strong> را برمی‌گرداند، نه تعداد حرف. <code>String</code> و <code>&amp;str</code> در Rust همیشه UTF-8 هستند و هر حرف فارسی در UTF-8 دو بایت می‌گیرد:</p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    let s = "ایران";
+    assert_eq!(s.len(), 10);            // 5 حرف × 2 بایت
+    assert_eq!(s.chars().count(), 5);   // تعداد code point
+}</code></pre>
+<p>به همین دلیل <code>&amp;s[0..1]</code> روی این رشته panic می‌کند (مرز حرف را وسط می‌شکند)، ولی <code>&amp;s[0..2]</code> معتبر است و <code>"ا"</code> را می‌دهد. برای شمردن «حرف» به معنای کاربری (grapheme cluster) باید از crate ‏<code>unicode-segmentation</code> کمک بگیرید؛ <code>chars()</code> هم هنوز گاهی با آنچه کاربر «یک حرف» می‌بیند فرق دارد.</p>
+<hr>
+<h2 id="فصل-۱۰-struct"><a class="header" href="#فصل-۱۰-struct"><a href="10-structs.html">فصل ۱۰: Struct</a></a></h2>
+<p><strong>تمرین ۱.</strong> <code>Book</code>:</p>
+<pre class="playground"><code class="language-rust edition2024">struct Book {
+    title: String,
+    author: String,
+    pages: u32,
+}
+
+impl Book {
+    fn new(title: &amp;str, author: &amp;str, pages: u32) -&gt; Self {
+        Self {
+            title: title.to_string(),
+            author: author.to_string(),
+            pages,
+        }
+    }
+
+    fn summary(&amp;self) -&gt; String {
+        format!("«{}» نوشته‌ی {} ({} صفحه)", self.title, self.author, self.pages)
+    }
+}
+
+fn main() {
+    let book = Book::new("بوف کور", "صادق هدایت", 120);
+    println!("{}", book.summary());
+    assert!(book.summary().contains("بوف کور"));
+}</code></pre>
+<p><strong>تمرین ۲.</strong> <code>Circle</code>:</p>
+<pre class="playground"><code class="language-rust edition2024">use std::f64::consts::PI;
+
+struct Circle {
+    radius: f64,
+}
+
+impl Circle {
+    fn area(&amp;self) -&gt; f64 {
+        PI * self.radius * self.radius
+    }
+
+    fn circumference(&amp;self) -&gt; f64 {
+        2.0 * PI * self.radius
+    }
+}
+
+fn main() {
+    let c = Circle { radius: 2.0 };
+    assert!((c.area() - 12.566370614359172).abs() &lt; 1e-9);
+    assert!((c.circumference() - 12.566370614359172).abs() &lt; 1e-9);
+}</code></pre>
+<p><strong>تمرین ۳.</strong> <code>Counter</code> (متد تغییردهنده <code>&amp;mut self</code>، متد خواننده <code>&amp;self</code>):</p>
+<pre class="playground"><code class="language-rust edition2024">#[derive(Default)]
+struct Counter {
+    count: u32,
+}
+
+impl Counter {
+    fn increment(&amp;mut self) {
+        self.count += 1;
+    }
+
+    fn get(&amp;self) -&gt; u32 {
+        self.count
+    }
+}
+
+fn main() {
+    let mut c = Counter::default();
+    c.increment();
+    c.increment();
+    assert_eq!(c.get(), 2);
+}</code></pre>
+<p>توجه کنید که <code>c</code> باید <code>mut</code> باشد تا بتوان <code>increment</code> را صدا زد.</p>
+<p><strong>تمرین ۴.</strong> <code>Meters</code> به <code>Feet</code> (هر متر ≈ ۳٫۲۸۰۸۴ فوت). نوع‌های جدا برای واحدهای مختلف (الگوی newtype) جلوی اشتباه‌هایی مثل جمع متر با فوت را در زمان کامپایل می‌گیرد:</p>
+<pre class="playground"><code class="language-rust edition2024">struct Meters(f64);
+struct Feet(f64);
+
+fn to_feet(m: &amp;Meters) -&gt; Feet {
+    Feet(m.0 * 3.280_84)
+}
+
+fn main() {
+    let m = Meters(100.0);
+    let f = to_feet(&amp;m);
+    assert!((f.0 - 328.084).abs() &lt; 1e-9);
+}</code></pre>
+<p>(می‌توانستید <code>impl From&lt;Meters&gt; for Feet</code> هم بنویسید؛ در <a href="16-traits.html">فصل ۱۶</a> می‌بینید.)</p>
+<hr>
+<h2 id="فصل-۱۱-enum-match-و-option"><a class="header" href="#فصل-۱۱-enum-match-و-option"><a href="11-enums.html">فصل ۱۱: Enum، match و Option</a></a></h2>
+<p><strong>تمرین ۱.</strong> <code>Shape</code> و مساحت. برای مثلث با سه ضلع از فرمول هرون استفاده می‌کنیم:</p>
+<pre class="playground"><code class="language-rust edition2024">enum Shape {
+    Circle(f64),
+    Rectangle(f64, f64),
+    Triangle(f64, f64, f64),
+}
+
+fn area(shape: &amp;Shape) -&gt; f64 {
+    match shape {
+        Shape::Circle(r) =&gt; std::f64::consts::PI * r * r,
+        Shape::Rectangle(w, h) =&gt; w * h,
+        Shape::Triangle(a, b, c) =&gt; {
+            let s = (a + b + c) / 2.0;
+            (s * (s - a) * (s - b) * (s - c)).sqrt()
+        }
+    }
+}
+
+fn main() {
+    assert_eq!(area(&amp;Shape::Rectangle(3.0, 4.0)), 12.0);
+    assert!((area(&amp;Shape::Triangle(3.0, 4.0, 5.0)) - 6.0).abs() &lt; 1e-12);
+    assert!((area(&amp;Shape::Circle(1.0)) - std::f64::consts::PI).abs() &lt; 1e-12);
+}</code></pre>
+<p>(برای مثلثی که نامعتبر است، مثل اضلاع <code>1, 1, 10</code>، مقدار زیر رادیکال منفی و نتیجه <code>NaN</code> می‌شود؛ در برنامه‌ی واقعی باید <code>Option</code> برگردانید یا با سازنده‌ی معتبرساز جلوی ساخت مثلث نامعتبر را بگیرید.)</p>
+<p><strong>تمرین ۲.</strong></p>
+<pre class="playground"><code class="language-rust edition2024">fn divide(a: f64, b: f64) -&gt; Option&lt;f64&gt; {
+    if b == 0.0 { None } else { Some(a / b) }
+}
+
+fn main() {
+    assert_eq!(divide(10.0, 4.0), Some(2.5));
+    assert_eq!(divide(1.0, 0.0), None);
+    // استفاده با combinator ها
+    assert_eq!(divide(8.0, 2.0).map(|x| x * 10.0), Some(40.0));
+    assert_eq!(divide(8.0, 0.0).unwrap_or(f64::NAN).is_nan(), true);
+}</code></pre>
+<p><strong>تمرین ۳.</strong> <code>TrafficLight</code>:</p>
+<pre class="playground"><code class="language-rust edition2024">use std::time::Duration;
+
+enum TrafficLight {
+    Red,
+    Yellow,
+    Green,
+}
+
+impl TrafficLight {
+    fn duration(&amp;self) -&gt; Duration {
+        match self {
+            TrafficLight::Red =&gt; Duration::from_secs(30),
+            TrafficLight::Yellow =&gt; Duration::from_secs(5),
+            TrafficLight::Green =&gt; Duration::from_secs(25),
+        }
+    }
+}
+
+fn main() {
+    assert_eq!(TrafficLight::Red.duration().as_secs(), 30);
+    assert_eq!(TrafficLight::Yellow.duration().as_secs(), 5);
+    assert_eq!(TrafficLight::Green.duration().as_secs(), 25);
+}</code></pre>
+<p>حالا یک حالت جدید (مثلاً <code>Flashing</code>) اضافه می‌کنیم، بدون به‌روز کردن <code>match</code>:</p>
+<pre class="playground"><code class="language-rust compile_fail edition2024"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::time::Duration;
+
+enum TrafficLight {
+    Red,
+    Yellow,
+    Green,
+    Flashing, // حالت جدید
+}
+
+impl TrafficLight {
+    fn duration(&amp;self) -&gt; Duration {
+        match self {
+            TrafficLight::Red =&gt; Duration::from_secs(30),
+            TrafficLight::Yellow =&gt; Duration::from_secs(5),
+            TrafficLight::Green =&gt; Duration::from_secs(25),
+            // error[E0004]: non-exhaustive patterns: `&amp;TrafficLight::Flashing` not covered
+        }
+    }
+}
+<span class="boring">}</span></code></pre>
+<p>این ویژگی مهم‌ترین مزیت <code>match</code> است: کامپایلر <strong>همه‌ی مکان‌هایی</strong> را که باید با حالت جدید کنار بیایند نشان می‌دهد. اگر در <code>match</code> از <code>_ =&gt; ...</code> استفاده می‌کردید، این محافظت از بین می‌رفت؛ پس برای enum های خودتان که ممکن است رشد کنند، از <code>_</code> بپرهیزید.</p>
+<hr>
+<h2 id="فصل-۱۲-مجموعهها"><a class="header" href="#فصل-۱۲-مجموعهها"><a href="12-collections.html">فصل ۱۲: مجموعه‌ها</a></a></h2>
+<p><strong>تمرین ۱.</strong> میانگین و میانه:</p>
+<pre class="playground"><code class="language-rust edition2024">fn mean(v: &amp;[i32]) -&gt; Option&lt;f64&gt; {
+    if v.is_empty() {
+        return None;
+    }
+    let sum: i64 = v.iter().map(|&amp;x| i64::from(x)).sum();
+    Some(sum as f64 / v.len() as f64)
+}
+
+fn median(v: &amp;[i32]) -&gt; Option&lt;f64&gt; {
+    if v.is_empty() {
+        return None;
+    }
+    let mut sorted = v.to_vec(); // کپی می‌کنیم تا ورودی را تغییر ندهیم
+    sorted.sort_unstable();
+    let mid = sorted.len() / 2;
+    if sorted.len() % 2 == 1 {
+        Some(f64::from(sorted[mid]))
+    } else {
+        Some((f64::from(sorted[mid - 1]) + f64::from(sorted[mid])) / 2.0)
+    }
+}
+
+fn main() {
+    let data = [5, 1, 9, 3];
+    assert_eq!(mean(&amp;data), Some(4.5));
+    assert_eq!(median(&amp;data), Some(4.0)); // (3 + 5) / 2
+    assert_eq!(median(&amp;[7, 1, 3]), Some(3.0));
+    assert_eq!(mean(&amp;[]), None);
+}</code></pre>
+<p>جمع را در <code>i64</code> می‌کنیم تا سرریز <code>i32</code> رخ ندهد.</p>
+<p><strong>تمرین ۲.</strong> Pig Latin. قاعده‌ی تمرین: کلمه‌ای که با بی‌صدا شروع شود، حرف اولش به انتها می‌رود و <code>ay</code> می‌گیرد. برای کلمه‌ی شروع‌شده با واکه (چیزی که تمرین نگفته) قرارداد معمول «<code>hay</code> به انتها» را می‌گیریم. حواسمان به UTF-8 است: به‌جای برش بایتی، از <code>chars()</code> استفاده می‌کنیم.</p>
+<pre class="playground"><code class="language-rust edition2024">fn pig_latin_word(word: &amp;str) -&gt; String {
+    let mut chars = word.chars();
+    let Some(first) = chars.next() else {
+        return String::new();
+    };
+    if "aeiouAEIOU".contains(first) {
+        format!("{word}hay")
+    } else {
+        format!("{}{first}ay", chars.as_str())
+    }
+}
+
+fn pig_latin(text: &amp;str) -&gt; String {
+    text.split_whitespace()
+        .map(pig_latin_word)
+        .collect::&lt;Vec&lt;_&gt;&gt;()
+        .join(" ")
+}
+
+fn main() {
+    assert_eq!(pig_latin_word("first"), "irstfay");
+    assert_eq!(pig_latin_word("apple"), "applehay");
+    assert_eq!(pig_latin("hello world"), "ellohay orldway");
+    assert_eq!(pig_latin_word(""), "");
+}</code></pre>
+<p><code>chars.as_str()</code> باقی‌مانده‌ی iterator را به‌صورت <code>&amp;str</code> می‌دهد (بدون allocate اضافه).</p>
+<p><strong>تمرین ۳.</strong> سیستم کارمندان. <code>HashMap&lt;String, Vec&lt;String&gt;&gt;</code>؛ با <code>entry().or_default()</code> اضافه می‌کنیم و برای چاپ مرتب، هم کلیدها و هم هر لیست را مرتب می‌کنیم (چون ترتیب <code>HashMap</code> تعریف‌نشده است). از <code>BTreeMap</code> هم می‌شد استفاده کرد تا کلیدها خودکار مرتب باشند، اما خود تمرین <code>HashMap</code> خواسته:</p>
+<pre class="playground"><code class="language-rust edition2024">use std::collections::HashMap;
+
+#[derive(Default)]
+struct Company {
+    departments: HashMap&lt;String, Vec&lt;String&gt;&gt;,
+}
+
+impl Company {
+    fn add(&amp;mut self, department: &amp;str, person: &amp;str) {
+        self.departments
+            .entry(department.to_string())
+            .or_default()
+            .push(person.to_string());
+    }
+
+    /// فرمان‌هایی مانند "Add Sally to Engineering" را اجرا می‌کند.
+    fn run_command(&amp;mut self, cmd: &amp;str) -&gt; bool {
+        let words: Vec&lt;&amp;str&gt; = cmd.split_whitespace().collect();
+        match words.as_slice() {
+            ["Add", person, "to", department] =&gt; {
+                self.add(department, person);
+                true
+            }
+            _ =&gt; false,
+        }
+    }
+
+    fn sorted_people(&amp;self, department: &amp;str) -&gt; Vec&lt;&amp;str&gt; {
+        let mut people: Vec&lt;&amp;str&gt; = self
+            .departments
+            .get(department)
+            .map(|v| v.iter().map(String::as_str).collect())
+            .unwrap_or_default();
+        people.sort();
+        people
+    }
+
+    fn print_all(&amp;self) {
+        let mut names: Vec&lt;&amp;String&gt; = self.departments.keys().collect();
+        names.sort();
+        for dept in names {
+            println!("{dept}: {}", self.sorted_people(dept).join(", "));
+        }
+    }
+}
+
+fn main() {
+    let mut company = Company::default();
+    assert!(company.run_command("Add Sally to Engineering"));
+    assert!(company.run_command("Add Amir to Engineering"));
+    assert!(company.run_command("Add Reza to Sales"));
+    assert!(!company.run_command("Remove Reza"));
+
+    assert_eq!(company.sorted_people("Engineering"), ["Amir", "Sally"]);
+    assert_eq!(company.sorted_people("Sales"), ["Reza"]);
+    assert!(company.sorted_people("HR").is_empty());
+    company.print_all();
+}</code></pre>
+<p>الگوی slice در <code>match words.as_slice()</code> در <a href="22-patterns.html">فصل ۲۲</a> کامل توضیح داده شده است.</p>
+<p><strong>تمرین ۴.</strong> شمارش تکرار هر حرف. اینجا هم «حرف» را <code>char</code> در نظر می‌گیریم. <code>BTreeMap</code> برای خروجی مرتب و قابل پیش‌بینی انتخاب شد:</p>
+<pre class="playground"><code class="language-rust edition2024">use std::collections::BTreeMap;
+
+fn char_counts(s: &amp;str) -&gt; BTreeMap&lt;char, usize&gt; {
+    let mut counts = BTreeMap::new();
+    for c in s.chars().filter(|c| !c.is_whitespace()) {
+        *counts.entry(c).or_insert(0) += 1;
+    }
+    counts
+}
+
+fn main() {
+    let counts = char_counts("hello world");
+    assert_eq!(counts[&amp;'l'], 3);
+    assert_eq!(counts[&amp;'o'], 2);
+    assert_eq!(counts.get(&amp;'z'), None);
+
+    let fa = char_counts("سلام");
+    assert_eq!(fa[&amp;'س'], 1);
+    assert_eq!(fa[&amp;'ا'], 1);
+    for (c, n) in &amp;counts {
+        println!("{c}: {n}");
+    }
+}</code></pre>
+<p>اگر به‌جای <code>BTreeMap</code> از <code>HashMap</code> استفاده کنید، منطق همان است ولی ترتیب چاپ هر بار ممکن است فرق کند.</p>
+<hr>
+<blockquote>
+<p><strong>جمع‌بندی:</strong> اگر در حل یک تمرین گیر کردید، به جای نگاه کردن به پاسخ، پیام کامپایلر را کلمه‌به‌کلمه بخوانید و به فصل مربوط برگردید. پاسخ تمرین‌های فصل‌های ۱۳ تا ۲۷ در <a href="exercises-solutions-2.html">پاسخ تمرین‌ها (بخش ۲)</a> است.</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="28-project-grep.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="29-next-steps.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="28-project-grep.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="29-next-steps.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

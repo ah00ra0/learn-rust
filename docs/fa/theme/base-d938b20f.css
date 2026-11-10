@@ -1,0 +1,29 @@
+/* کد همیشه چپ‌به‌راست، در همه‌ی زبان‌ها */
+pre,
+pre > code,
+code,
+.hljs {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: isolate;
+  font-family: "Source Code Pro", Consolas, Menlo, monospace;
+}
+
+pre {
+  direction: ltr;
+}
+
+.content main {
+  line-height: 1.9;
+}
+
+blockquote {
+  border-inline-start: 4px solid #dea584;
+  border-inline-end: none;
+  background: rgba(222, 165, 132, 0.12);
+  padding: 0.6em 1.2em;
+}
+
+table {
+  margin-inline: auto;
+}

@@ -1,0 +1,26 @@
+@import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css");
+
+:root {
+  --rtl-font: "Vazirmatn", Tahoma, "Segoe UI", sans-serif;
+}
+
+body,
+.content main,
+.menu-title,
+#mdbook-sidebar,
+#mdbook-menu-bar {
+  font-family: var(--rtl-font);
+}
+
+.content main {
+  line-height: 2;
+  font-size: 1.7rem;
+}
+
+/* کد باید با فونت مونواسپیس بماند */
+pre,
+pre > code,
+code,
+.hljs {
+  font-family: "Source Code Pro", Consolas, Menlo, monospace;
+}
