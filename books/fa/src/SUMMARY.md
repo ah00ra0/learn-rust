@@ -13,6 +13,7 @@
 - [انواع داده در Rust](04-data-types.md)
 - [توابع و کامنت‌ها](05-functions.md)
 - [کنترل جریان: if، loop، while و for](06-control-flow.md)
+- [قالب‌بندی خروجی و ورودی/خروجی](formatting-and-io.md)
 
 # مفاهیم اصلی Rust
 
@@ -26,6 +27,7 @@
 - [Struct](10-structs.md)
 - [Enum، match و Option](11-enums.md)
 - [مجموعه‌ها: Vec، String و HashMap](12-collections.md)
+- [رشته‌ها و یونیکد در عمق (با تمرکز بر فارسی)](strings-unicode.md)
 
 # سازمان‌دهی کد و خطاها
 
