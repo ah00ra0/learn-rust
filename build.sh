@@ -214,6 +214,7 @@ case "$cmd" in
   all)
     rm -rf docs
     mkdir -p docs
+    cp -r static/. docs/ 2>/dev/null || true  # فایل‌های ثابت (مثل تأیید مالکیت Google)
     for l in $(active_langs); do build_one "$l"; done
     landing_page
     sitemap_and_robots
