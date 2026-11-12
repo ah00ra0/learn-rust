@@ -62,6 +62,7 @@
 - [Cargo پیشرفته](cargo-advanced.md)
 - [ساخت REST API با Axum](web-axum.md)
 - [عملکرد و بهینه‌سازی](performance.md)
+- [Rust اصطلاحی و الگوهای طراحی](idioms-patterns.md)
 
 # پروژه عملی
 
