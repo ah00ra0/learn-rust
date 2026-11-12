@@ -1,132 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url><loc>https://ah00ra0.github.io/learn-rust/</loc><lastmod>2026-11-10</lastmod><priority>1.0</priority></url>
+  <url><loc>https://ah00ra0.github.io/learn-rust/</loc><lastmod>2026-11-12</lastmod><priority>1.0</priority></url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/01-install.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/01-install.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/01-install.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/02-hello-cargo.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/02-hello-cargo.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/02-hello-cargo.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/03-variables.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/03-variables.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/03-variables.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/04-data-types.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/04-data-types.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/04-data-types.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/05-functions.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/05-functions.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/05-functions.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/06-control-flow.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/06-control-flow.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/06-control-flow.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/07-ownership.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/07-ownership.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/07-ownership.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/08-borrowing.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/08-borrowing.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/08-borrowing.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/09-slices.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/09-slices.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/09-slices.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/10-structs.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/10-structs.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/10-structs.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/11-enums.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/11-enums.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/11-enums.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/12-collections.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/12-collections.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/12-collections.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/13-modules.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/13-modules.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/13-modules.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/14-errors.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/14-errors.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/14-errors.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/15-generics.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/15-generics.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/15-generics.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/16-traits.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/16-traits.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/16-traits.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/17-lifetimes.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/17-lifetimes.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/17-lifetimes.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/18-closures.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/18-closures.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/18-closures.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/19-iterators.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/19-iterators.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/19-iterators.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/20-smart-pointers.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/20-smart-pointers.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/20-smart-pointers.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/21-concurrency.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/21-concurrency.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/21-concurrency.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/22-patterns.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/22-patterns.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/22-patterns.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/23-testing.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/23-testing.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/23-testing.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/24-trait-objects.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/24-trait-objects.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/24-trait-objects.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/25-macros.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/25-macros.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/25-macros.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/26-async.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/26-async.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/26-async.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/27-unsafe.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/27-unsafe.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/27-unsafe.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/28-project-grep.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/28-project-grep.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/28-project-grep.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/29-next-steps.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/29-next-steps.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/29-next-steps.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/exercises-solutions-1.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/cargo-advanced.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/cargo-advanced.html"/>
+  </url>
+  <url>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/compiler-errors-cookbook.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/compiler-errors-cookbook.html"/>
+  </url>
+  <url>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/exercises-solutions-1.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/exercises-solutions-1.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/glossary.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/formatting-and-io.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/formatting-and-io.html"/>
+  </url>
+  <url>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/glossary.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/glossary.html"/>
   </url>
   <url>
-    <loc>https://ah00ra0.github.io/learn-rust/fa/</loc><lastmod>2026-11-10</lastmod><priority>0.9</priority>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/idioms-patterns.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/idioms-patterns.html"/>
+  </url>
+  <url>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/</loc><lastmod>2026-11-12</lastmod><priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/"/>
+  </url>
+  <url>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/performance.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/performance.html"/>
+  </url>
+  <url>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/std-traits-conversions.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/std-traits-conversions.html"/>
+  </url>
+  <url>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/strings-unicode.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/strings-unicode.html"/>
+  </url>
+  <url>
+    <loc>https://ah00ra0.github.io/learn-rust/fa/web-axum.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/web-axum.html"/>
   </url>
 </urlset>

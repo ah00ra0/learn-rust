@@ -1,0 +1,764 @@
+<!DOCTYPE HTML>
+<html lang="fa" class="light sidebar-visible" dir="rtl">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>قالب‌بندی خروجی و ورودی/خروجی - آموزش جامع Rust (راست) به زبان فارسی</title>
+
+
+        <!-- Custom HTML head -->
+        <meta name="description" content="آموزش رایگان و کامل زبان Rust (راست) به فارسی: نصب، ownership، borrowing، trait، lifetime، concurrency، async و پروژه عملی. مناسب مبتدی تا پیشرفته.">
+        <meta name="keywords" content="آموزش Rust, آموزش راست, یادگیری Rust, آموزش Rust فارسی, زبان برنامه‌نویسی Rust, Rust برای مبتدی, ownership, borrowing, cargo, آموزش رایگان Rust">
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="fa_IR">
+        <meta property="og:site_name" content="آموزش جامع Rust به فارسی">
+        <meta property="og:title" content="آموزش جامع Rust (راست) به زبان فارسی">
+        <meta property="og:description" content="آموزش رایگان و کامل زبان Rust (راست) به فارسی: نصب، ownership، borrowing، trait، lifetime، concurrency، async و پروژه عملی. مناسب مبتدی تا پیشرفته.">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="آموزش جامع Rust (راست) به زبان فارسی">
+        <meta name="twitter:description" content="آموزش رایگان و کامل زبان Rust (راست) به فارسی: نصب، ownership، borrowing، trait، lifetime، concurrency، async و پروژه عملی. مناسب مبتدی تا پیشرفته.">
+        <link rel="alternate" hreflang="fa" href="https://ah00ra0.github.io/learn-rust/fa/">
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": "آموزش جامع Rust (راست) به زبان فارسی",
+          "description": "آموزش رایگان و کامل زبان Rust (راست) به فارسی: نصب، ownership، borrowing، trait، lifetime، concurrency، async و پروژه عملی. مناسب مبتدی تا پیشرفته.",
+          "inLanguage": "fa",
+          "isAccessibleForFree": true,
+          "url": "https://ah00ra0.github.io/learn-rust/fa/",
+          "provider": { "@type": "Person", "name": "ah00ra0", "url": "https://github.com/ah00ra0" }
+        }
+        </script>
+
+        <meta name="description" content="آموزش رایگان و کامل زبان Rust (راست) به فارسی: نصب، ownership، borrowing، trait، lifetime، concurrency، async و پروژه عملی. مناسب مبتدی تا پیشرفته.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/base-d938b20f.css">
+        <link rel="stylesheet" href="theme/rtl-eedac683.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-3f457c09.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-b4d032fe.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">آموزش جامع Rust (راست) به زبان فارسی</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/ah00ra0/learn-rust" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/ah00ra0/learn-rust/edit/main/books/fa/src/src/formatting-and-io.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <span class=fa-svg id="git-edit-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M421.7 220.3l-11.3 11.3-22.6 22.6-205 205c-6.6 6.6-14.8 11.5-23.8 14.1L30.8 511c-8.4 2.5-17.5 .2-23.7-6.1S-1.5 489.7 1 481.2L38.7 353.1c2.6-9 7.5-17.2 14.1-23.8l205-205 22.6-22.6 11.3-11.3 33.9 33.9 62.1 62.1 33.9 33.9zM96 353.9l-9.3 9.3c-.9 .9-1.6 2.1-2 3.4l-25.3 86 86-25.3c1.3-.4 2.5-1.1 3.4-2l9.3-9.3H112c-8.8 0-16-7.2-16-16V353.9zM453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-14.5 14.5-22.6 22.6-11.3 11.3-33.9-33.9-62.1-62.1L314.3 67.7l11.3-11.3 22.6-22.6 14.5-14.5c25-25 65.5-25 90.5 0z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="قالببندی-خروجی-و-ورودیخروجی"><a class="header" href="#قالببندی-خروجی-و-ورودیخروجی">قالب‌بندی خروجی و ورودی/خروجی</a></h1>
+<p>تا اینجا فقط از <code>println!("{x}")</code> استفاده کردید. این فصل <strong>همه‌ی</strong> امکانات قالب‌بندی، سپس خواندن از ورودی، کار با فایل، آرگومان‌های خط فرمان و مسیرها را پوشش می‌دهد.</p>
+<blockquote>
+<p>در این فصل برای اینکه نتیجه‌ی هر قالب <strong>تأیید شود</strong>، از <code>assert_eq!(format!(...), "...")</code> استفاده می‌کنیم. خروجی مورد انتظار همان رشته‌ی سمت راست است.</p>
+</blockquote>
+<h2 id="خانوادهی-ماکروهای-قالببندی"><a class="header" href="#خانوادهی-ماکروهای-قالببندی">خانواده‌ی ماکروهای قالب‌بندی</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>ماکرو</th><th>کار</th></tr>
+</thead>
+<tbody>
+<tr><td><code>format!</code></td><td>رشته‌ی <code>String</code> می‌سازد</td></tr>
+<tr><td><code>print!</code> / <code>println!</code></td><td>چاپ در stdout (با/بدون خط جدید)</td></tr>
+<tr><td><code>eprint!</code> / <code>eprintln!</code></td><td>چاپ در stderr</td></tr>
+<tr><td><code>write!</code> / <code>writeln!</code></td><td>نوشتن در هر چیزی که <code>fmt::Write</code> یا <code>io::Write</code> پیاده کرده باشد</td></tr>
+<tr><td><code>panic!</code>, <code>assert!</code>, <code>unreachable!</code>, <code>todo!</code></td><td>پیغام خطا هم با همین قالب‌بندی ساخته می‌شود</td></tr>
+</tbody>
+</table>
+</div>
+<p>همه‌ی آن‌ها یک <strong>زبان قالب</strong> مشترک دارند.</p>
+<h2 id="آرگومانها-موقعیتی-نامدار-ضمنی"><a class="header" href="#آرگومانها-موقعیتی-نامدار-ضمنی">آرگومان‌ها: موقعیتی، نام‌دار، ضمنی</a></h2>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    let name = "رضا";
+    let age = 30;
+
+    assert_eq!(format!("{} {}", name, age), "رضا 30");          // به ترتیب
+    assert_eq!(format!("{1} {0}", name, age), "30 رضا");        // اندیس
+    assert_eq!(format!("{n} {a}", n = name, a = age), "رضا 30"); // نام‌دار
+    assert_eq!(format!("{name} {age}"), "رضا 30");              // ضمنی (capture متغیر)
+    assert_eq!(format!("{0} {0} {0}", "x"), "x x x");           // تکرار
+    assert_eq!(format!("{{literal}}"), "{literal}");            // escape آکولاد
+}</code></pre>
+<blockquote>
+<p><strong>محدودیت:</strong> در قالب ضمنی فقط <strong>نام متغیر</strong> مجاز است، نه عبارت. <code>{a + b}</code> خطاست؛ بنویسید <code>{}</code> با آرگومان <code>a + b</code>.</p>
+</blockquote>
+<h2 id="مشخصات-قالب-fill-align-sign--0-width-precision-type"><a class="header" href="#مشخصات-قالب-fill-align-sign--0-width-precision-type">مشخصات قالب: <code>{:fill align sign # 0 width .precision type}</code></a></h2>
+<p>ساختار کلی داخل آکولاد: <code>{نام:مشخصات}</code>. مشخصات به ترتیب (همه اختیاری): <strong>پر کننده، تراز، علامت، <code>#</code>، <code>0</code>، عرض، <code>.دقت</code>، نوع</strong>.</p>
+<h3 id="عرض-و-تراز"><a class="header" href="#عرض-و-تراز">عرض و تراز</a></h3>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    assert_eq!(format!("[{:6}]", 42), "[    42]");     // عدد: پیش‌فرض راست‌تراز
+    assert_eq!(format!("[{:6}]", "ab"), "[ab    ]");   // رشته: پیش‌فرض چپ‌تراز
+    assert_eq!(format!("[{:&lt;6}]", 42), "[42    ]");    // چپ
+    assert_eq!(format!("[{:&gt;6}]", "ab"), "[    ab]");  // راست
+    assert_eq!(format!("[{:^6}]", "ab"), "[  ab  ]");  // وسط
+    assert_eq!(format!("[{:*^7}]", "ab"), "[**ab***]"); // با کاراکتر پرکننده
+    assert_eq!(format!("[{:-&lt;5}]", 1), "[1----]");
+}</code></pre>
+<h3 id="عرض-پویا"><a class="header" href="#عرض-پویا">عرض پویا</a></h3>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    let w = 8;
+    let p = 2;
+    assert_eq!(format!("[{:w$}]", 7), "[       7]");        // نام متغیر + $
+    assert_eq!(format!("[{:1$}]", 7, 5), "[    7]");         // اندیس آرگومان + $
+    assert_eq!(format!("[{:&gt;w$.p$}]", 3.14159), "[    3.14]");
+    assert_eq!(format!("[{:&gt;1$}]", "x", 3), "[  x]");
+    assert_eq!(format!("[{:.*}]", 3, 1.23456), "[1.235]");   // .* دقت را از آرگومان قبلی می‌گیرد
+}</code></pre>
+<h3 id="علامت-صفر-و-پیشوند"><a class="header" href="#علامت-صفر-و-پیشوند">علامت، صفر و پیشوند</a></h3>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    assert_eq!(format!("{:+}", 5), "+5");
+    assert_eq!(format!("{:05}", 42), "00042");
+    assert_eq!(format!("{:+05}", 42), "+0042");
+    assert_eq!(format!("{:05}", -42), "-0042");
+    assert_eq!(format!("{:#x}", 255), "0xff");
+    assert_eq!(format!("{:#b}", 5), "0b101");
+    assert_eq!(format!("{:#o}", 8), "0o10");
+}</code></pre>
+<h3 id="دقت-اعشار-و-رشته"><a class="header" href="#دقت-اعشار-و-رشته">دقت اعشار و رشته</a></h3>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    assert_eq!(format!("{:.2}", 3.14159), "3.14");
+    assert_eq!(format!("{:8.3}", 3.14159), "   3.142");
+    assert_eq!(format!("{:08.3}", 3.14159), "0003.142");
+    assert_eq!(format!("{:.0}", 2.5), "2");       // گرد کردن به نزدیک‌ترین زوج در این مورد
+    assert_eq!(format!("{:.3}", "abcdef"), "abc"); // روی رشته: برش به ۳ کاراکتر
+    assert_eq!(format!("{}", 1.0), "1");          // Display برای f64 صفر اضافی نمی‌گذارد
+    assert_eq!(format!("{:?}", 1.0), "1.0");      // Debug دقیق‌تر نشان می‌دهد
+}</code></pre>
+<h3 id="نوع-قالب"><a class="header" href="#نوع-قالب">نوع قالب</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>مشخصه</th><th>معنی</th><th>مثال</th><th>نتیجه</th></tr>
+</thead>
+<tbody>
+<tr><td>(خالی)</td><td><code>Display</code></td><td><code>{}</code></td><td><code>42</code></td></tr>
+<tr><td><code>?</code></td><td><code>Debug</code></td><td><code>{:?}</code></td><td><code>"ab"</code> با کوتیشن</td></tr>
+<tr><td><code>#?</code></td><td><code>Debug</code> زیبا (چندخطی)</td><td><code>{:#?}</code></td><td></td></tr>
+<tr><td><code>x</code> / <code>X</code></td><td>هگز</td><td><code>{:x}</code></td><td><code>ff</code> / <code>FF</code></td></tr>
+<tr><td><code>o</code></td><td>هشت‌هشتی</td><td><code>{:o}</code></td><td><code>10</code></td></tr>
+<tr><td><code>b</code></td><td>دودویی</td><td><code>{:b}</code></td><td><code>101</code></td></tr>
+<tr><td><code>e</code> / <code>E</code></td><td>علمی</td><td><code>{:e}</code></td><td><code>1.5e3</code></td></tr>
+<tr><td><code>p</code></td><td>آدرس pointer</td><td><code>{:p}</code></td><td><code>0x7ff...</code></td></tr>
+</tbody>
+</table>
+</div>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    assert_eq!(format!("{:x}", 255), "ff");
+    assert_eq!(format!("{:X}", 255), "FF");
+    assert_eq!(format!("{:#010b}", 5), "0b00000101"); // عرض شامل پیشوند است
+    assert_eq!(format!("{:e}", 1500.0), "1.5e3");
+    assert_eq!(format!("{:?}", "a\"b"), "\"a\\\"b\"");   // Debug کاراکتر خاص را escape می‌کند
+    assert_eq!(format!("{:?}", Some("x")), "Some(\"x\")");
+    assert_eq!(format!("{:?}", (1, 'a')), "(1, 'a')");
+    assert_eq!(format!("{:?}", vec![1, 2]), "[1, 2]");
+}</code></pre>
+<h3 id="-برای-ساختارهای-تو-در-تو"><a class="header" href="#-برای-ساختارهای-تو-در-تو"><code>{:#?}</code> برای ساختارهای تو در تو</a></h3>
+<pre class="playground"><code class="language-rust edition2024">#[derive(Debug)]
+struct User {
+    name: String,
+    tags: Vec&lt;&amp;'static str&gt;,
+}
+
+fn main() {
+    let u = User { name: "علی".to_string(), tags: vec!["a", "b"] };
+    let pretty = format!("{u:#?}");
+    assert!(pretty.starts_with("User {\n    name: \"علی\",\n    tags: [\n        \"a\","));
+    println!("{pretty}");
+}</code></pre>
+<h2 id="قالببندی-برای-نوع-خودتان"><a class="header" href="#قالببندی-برای-نوع-خودتان">قالب‌بندی برای نوع خودتان</a></h2>
+<h3 id="display-و-debug"><a class="header" href="#display-و-debug">Display و Debug</a></h3>
+<p>قبلاً دیدید. نکته‌ی مهم: وقتی <code>{:&gt;10}</code> را روی نوع خودتان می‌زنید، <strong>پارامترهای قالب</strong> (عرض، تراز) به <code>fmt</code> داده می‌شوند و فقط اگر خودتان رعایتشان کنید اثر دارند. ساده‌ترین راه:</p>
+<pre class="playground"><code class="language-rust edition2024">use std::fmt;
+
+struct Plain(&amp;'static str);
+struct Padded(&amp;'static str);
+
+impl fmt::Display for Plain {
+    fn fmt(&amp;self, f: &amp;mut fmt::Formatter&lt;'_&gt;) -&gt; fmt::Result {
+        write!(f, "{}", self.0) // write! پارامترهای بیرونی را نادیده می‌گیرد
+    }
+}
+
+impl fmt::Display for Padded {
+    fn fmt(&amp;self, f: &amp;mut fmt::Formatter&lt;'_&gt;) -&gt; fmt::Result {
+        f.pad(self.0) // pad عرض/تراز/دقت را رعایت می‌کند
+    }
+}
+
+fn main() {
+    assert_eq!(format!("[{:&gt;5}]", Plain("ab")), "[ab]");
+    assert_eq!(format!("[{:&gt;5}]", Padded("ab")), "[   ab]");
+}</code></pre>
+<h3 id="نوشتن-debug-دستی-با-ابزارهای-کمکی"><a class="header" href="#نوشتن-debug-دستی-با-ابزارهای-کمکی">نوشتن Debug دستی با ابزارهای کمکی</a></h3>
+<pre class="playground"><code class="language-rust edition2024">use std::fmt;
+
+struct Secret {
+    user: String,
+    password: String,
+}
+
+impl fmt::Debug for Secret {
+    fn fmt(&amp;self, f: &amp;mut fmt::Formatter&lt;'_&gt;) -&gt; fmt::Result {
+        f.debug_struct("Secret")
+            .field("user", &amp;self.user)
+            .field("password", &amp;"***") // رمز در لاگ نمی‌آید
+            .finish()
+    }
+}
+
+fn main() {
+    let s = Secret { user: "ali".into(), password: "hunter2".into() };
+    assert_eq!(format!("{s:?}"), "Secret { user: \"ali\", password: \"***\" }");
+}</code></pre>
+<h3 id="ساخت-جدول-متنی"><a class="header" href="#ساخت-جدول-متنی">ساخت جدول متنی</a></h3>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    let rows = [("سیب", 12.5, 3), ("پرتقال", 8.25, 10), ("موز", 20.0, 1)];
+
+    let mut out = String::new();
+    out.push_str(&amp;format!("{:&lt;10}|{:&gt;8}|{:&gt;4}\n", "نام", "قیمت", "تعداد"));
+    out.push_str(&amp;format!("{}\n", "-".repeat(24)));
+    for (name, price, qty) in rows {
+        out.push_str(&amp;format!("{name:&lt;10}|{price:&gt;8.2}|{qty:&gt;4}\n"));
+    }
+    println!("{out}");
+    assert!(out.contains("   12.50|   3"));
+}</code></pre>
+<blockquote>
+<p><strong>هشدار فارسی/عربی:</strong> عرض در <code>{:&lt;10}</code> بر اساس <strong>تعداد کاراکتر یونیکد</strong> است، نه عرض نمایشی در ترمینال. نتیجه برای متن راست‌به‌چپ یا کاراکترهای ترکیبی ممکن است در ترمینال هم‌تراز نباشد. برای ترازبندی دقیق از crate هایی مثل <code>unicode-width</code> کمک بگیرید (بیشتر در فصل <a href="strings-unicode.html">رشته‌ها و یونیکد</a>).</p>
+</blockquote>
+<h2 id="نوشتن-در-string-و-در-جریانها-با-write"><a class="header" href="#نوشتن-در-string-و-در-جریانها-با-write">نوشتن در String و در جریان‌ها با write!</a></h2>
+<p>برای ساخت یک رشته‌ی بزرگ بدون ساختن String های موقتی:</p>
+<pre class="playground"><code class="language-rust edition2024">use std::fmt::Write; // این trait برای String
+
+fn main() {
+    let mut s = String::new();
+    write!(s, "{}-", 1).unwrap();
+    writeln!(s, "{}", 2).unwrap();
+    assert_eq!(s, "1-2\n");
+}</code></pre>
+<p>برای فایل و stdout، <code>std::io::Write</code> را import کنید (نام‌ها یکی است ولی traitها متفاوت‌اند؛ اگر هر دو لازم است از <code>as</code> استفاده کنید):</p>
+<pre class="playground"><code class="language-rust edition2024">use std::io::Write;
+
+fn main() -&gt; std::io::Result&lt;()&gt; {
+    let mut buf: Vec&lt;u8&gt; = Vec::new();
+    write!(buf, "سلام {}", 5)?;       // Vec&lt;u8&gt; هم io::Write است
+    writeln!(buf)?;
+    assert_eq!(String::from_utf8(buf).unwrap(), "سلام 5\n");
+
+    let stdout = std::io::stdout();
+    let mut out = stdout.lock();     // قفل یک‌بار؛ برای چاپ زیاد سریع‌تر
+    writeln!(out, "خروجی با قفل")?;
+    Ok(())
+}</code></pre>
+<h2 id="چاپ-زیاد-بافر-و-قفل"><a class="header" href="#چاپ-زیاد-بافر-و-قفل">چاپ زیاد: بافر و قفل</a></h2>
+<p><code>println!</code> هر بار stdout را قفل می‌کند و (روی ترمینال) هر خط را flush می‌کند. برای چاپ صدها هزار خط:</p>
+<pre class="playground"><code class="language-rust edition2024">use std::io::{BufWriter, Write};
+
+fn main() -&gt; std::io::Result&lt;()&gt; {
+    let stdout = std::io::stdout();
+    let mut out = BufWriter::new(stdout.lock());
+    for i in 0..5 {
+        writeln!(out, "خط {i}")?;
+    }
+    out.flush()?; // BufWriter در Drop هم flush می‌کند ولی خطاها را نادیده می‌گیرد
+    Ok(())
+}</code></pre>
+<h2 id="stdout-در-برابر-stderr"><a class="header" href="#stdout-در-برابر-stderr">stdout در برابر stderr</a></h2>
+<ul>
+<li><strong>stdout</strong>: نتیجه‌ی برنامه (قابل pipe به برنامه‌ی بعدی).</li>
+<li><strong>stderr</strong>: پیغام خطا و لاگ.</li>
+</ul>
+<pre><code class="language-bash">./prog &gt; out.txt        # فقط stdout به فایل می‌رود، خطاها روی صفحه می‌آیند
+./prog 2&gt; err.txt
+</code></pre>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
+    println!("نتیجه");
+    eprintln!("هشدار: فایل پیکربندی پیدا نشد");
+}</code></pre>
+<h2 id="خواندن-از-ورودی-stdin"><a class="header" href="#خواندن-از-ورودی-stdin">خواندن از ورودی (stdin)</a></h2>
+<h3 id="یک-خط"><a class="header" href="#یک-خط">یک خط</a></h3>
+<pre class="playground"><code class="language-rust edition2024">use std::io;
+
+fn main() -&gt; io::Result&lt;()&gt; {
+    let mut line = String::new();
+    let n = io::stdin().read_line(&amp;mut line)?; // خط جدید انتهای رشته می‌ماند!
+    // n == 0 یعنی EOF
+    let trimmed = line.trim();
+    println!("خواندم {n} بایت: {trimmed}");
+    Ok(())
+}</code></pre>
+<h3 id="همهی-خطوط"><a class="header" href="#همهی-خطوط">همه‌ی خطوط</a></h3>
+<pre class="playground"><code class="language-rust edition2024">use std::io::{self, BufRead};
+
+fn main() -&gt; io::Result&lt;()&gt; {
+    let stdin = io::stdin();
+    let mut sum = 0i64;
+    for line in stdin.lock().lines() {
+        let line = line?;
+        if let Ok(n) = line.trim().parse::&lt;i64&gt;() {
+            sum += n;
+        }
+    }
+    println!("مجموع: {sum}");
+    Ok(())
+}</code></pre>
+<h3 id="تستپذیر-کردن-ورودی"><a class="header" href="#تستپذیر-کردن-ورودی">تست‌پذیر کردن ورودی</a></h3>
+<p>تابعی که مستقیم <code>stdin</code> را می‌خواند سخت تست می‌شود. به‌جایش از <code>impl BufRead</code> بگیرید:</p>
+<pre class="playground"><code class="language-rust edition2024">use std::io::{BufRead, Cursor};
+
+fn sum_numbers(reader: impl BufRead) -&gt; i64 {
+    reader
+        .lines()
+        .map_while(Result::ok)
+        .filter_map(|l| l.trim().parse::&lt;i64&gt;().ok())
+        .sum()
+}
+
+fn main() {
+    // در تست: Cursor روی بایت‌ها
+    assert_eq!(sum_numbers(Cursor::new("1\n2\nx\n 40 \n")), 43);
+
+    // در برنامه‌ی واقعی:
+    // sum_numbers(std::io::stdin().lock());
+    println!("{}", sum_numbers(Cursor::new("5\n6")));
+}</code></pre>
+<h3 id="خواندن-عدد-از-کاربر-با-حلقهی-تکرار"><a class="header" href="#خواندن-عدد-از-کاربر-با-حلقهی-تکرار">خواندن عدد از کاربر با حلقه‌ی تکرار</a></h3>
+<pre class="playground"><code class="language-rust edition2024">use std::io::{self, BufRead, Write};
+
+fn ask_number(mut input: impl BufRead, mut output: impl Write) -&gt; io::Result&lt;u32&gt; {
+    loop {
+        write!(output, "یک عدد وارد کنید: ")?;
+        output.flush()?; // چون print! خط جدید ندارد، prompt بدون flush دیده نمی‌شود
+        let mut line = String::new();
+        if input.read_line(&amp;mut line)? == 0 {
+            return Err(io::Error::new(io::ErrorKind::UnexpectedEof, "ورودی تمام شد"));
+        }
+        match line.trim().parse() {
+            Ok(n) =&gt; return Ok(n),
+            Err(_) =&gt; writeln!(output, "عدد معتبر نیست")?,
+        }
+    }
+}
+
+fn main() -&gt; io::Result&lt;()&gt; {
+    let mut out = Vec::new();
+    let n = ask_number(io::Cursor::new("abc\n42\n"), &amp;mut out)?;
+    assert_eq!(n, 42);
+    assert!(String::from_utf8(out).unwrap().contains("عدد معتبر نیست"));
+    Ok(())
+}</code></pre>
+<h2 id="کار-با-فایلها"><a class="header" href="#کار-با-فایلها">کار با فایل‌ها</a></h2>
+<h3 id="خواندن-و-نوشتن-کامل"><a class="header" href="#خواندن-و-نوشتن-کامل">خواندن و نوشتن کامل</a></h3>
+<pre class="playground"><code class="language-rust edition2024">use std::fs;
+use std::io;
+
+fn main() -&gt; io::Result&lt;()&gt; {
+    let dir = std::env::temp_dir().join("rust_book_io_demo");
+    fs::create_dir_all(&amp;dir)?;
+    let path = dir.join("a.txt");
+
+    fs::write(&amp;path, "سلام\nدنیا\n")?;            // ایجاد یا بازنویسی
+    let text = fs::read_to_string(&amp;path)?;        // کل فایل به‌صورت UTF-8
+    assert_eq!(text, "سلام\nدنیا\n");
+
+    let bytes = fs::read(&amp;path)?;                 // بایت خام
+    assert_eq!(bytes.len(), text.len());
+
+    fs::remove_dir_all(&amp;dir)?;
+    Ok(())
+}</code></pre>
+<h3 id="خواندن-خطبهخط-با-بافر-برای-فایلهای-بزرگ"><a class="header" href="#خواندن-خطبهخط-با-بافر-برای-فایلهای-بزرگ">خواندن خط‌به‌خط با بافر (برای فایل‌های بزرگ)</a></h3>
+<pre class="playground"><code class="language-rust edition2024">use std::fs::File;
+use std::io::{self, BufRead, BufReader, BufWriter, Write};
+
+fn main() -&gt; io::Result&lt;()&gt; {
+    let path = std::env::temp_dir().join("rust_book_lines.txt");
+
+    {
+        let mut w = BufWriter::new(File::create(&amp;path)?);
+        for i in 1..=3 {
+            writeln!(w, "خط شماره {i}")?;
+        }
+    } // w در اینجا flush و بسته می‌شود
+
+    let reader = BufReader::new(File::open(&amp;path)?);
+    let lines: Vec&lt;String&gt; = reader.lines().collect::&lt;Result&lt;_, _&gt;&gt;()?;
+    assert_eq!(lines.len(), 3);
+    assert_eq!(lines[1], "خط شماره 2");
+
+    std::fs::remove_file(&amp;path)?;
+    Ok(())
+}</code></pre>
+<h3 id="افزودن-به-انتهای-فایل-و-openoptions"><a class="header" href="#افزودن-به-انتهای-فایل-و-openoptions">افزودن به انتهای فایل و OpenOptions</a></h3>
+<pre class="playground"><code class="language-rust edition2024">use std::fs::OpenOptions;
+use std::io::{self, Write};
+
+fn main() -&gt; io::Result&lt;()&gt; {
+    let path = std::env::temp_dir().join("rust_book_append.log");
+    let _ = std::fs::remove_file(&amp;path);
+
+    for msg in ["الف", "ب"] {
+        let mut f = OpenOptions::new().create(true).append(true).open(&amp;path)?;
+        writeln!(f, "{msg}")?;
+    }
+    assert_eq!(std::fs::read_to_string(&amp;path)?, "الف\nب\n");
+    std::fs::remove_file(&amp;path)
+}</code></pre>
+<h3 id="خطاهای-io"><a class="header" href="#خطاهای-io">خطاهای I/O</a></h3>
+<p>نوع <code>io::Error</code> یک <code>kind()</code> دارد:</p>
+<pre class="playground"><code class="language-rust edition2024">use std::io::ErrorKind;
+
+fn main() {
+    let err = std::fs::read_to_string("/this/does/not/exist").unwrap_err();
+    assert_eq!(err.kind(), ErrorKind::NotFound);
+    println!("{err}");
+}</code></pre>
+<h2 id="مسیرها-path-و-pathbuf"><a class="header" href="#مسیرها-path-و-pathbuf">مسیرها: Path و PathBuf</a></h2>
+<p><code>Path</code> شبیه <code>&amp;str</code> و <code>PathBuf</code> شبیه <code>String</code> است (نوع قرض‌گرفته و نوع مالک). <strong>مسیر را هرگز با الحاق رشته نسازید</strong>؛ جداکننده در ویندوز و یونیکس فرق دارد.</p>
+<pre class="playground"><code class="language-rust edition2024">use std::path::{Path, PathBuf};
+
+fn main() {
+    let mut p = PathBuf::from("projects");
+    p.push("rust");
+    p.push("main.rs");
+    assert_eq!(p, Path::new("projects/rust/main.rs"));
+
+    assert_eq!(p.file_name().unwrap(), "main.rs");
+    assert_eq!(p.extension().unwrap(), "rs");
+    assert_eq!(p.file_stem().unwrap(), "main");
+    assert_eq!(p.parent().unwrap(), Path::new("projects/rust"));
+
+    let q = p.with_extension("txt");
+    assert_eq!(q, Path::new("projects/rust/main.txt"));
+
+    // مسیر لزوماً UTF-8 نیست؛ تبدیل به &amp;str ممکن است None بدهد
+    assert_eq!(p.to_str(), Some("projects/rust/main.rs"));
+    println!("{}", p.display());      // برای چاپ از display() استفاده کنید
+}</code></pre>
+<p>پیمایش پوشه:</p>
+<pre class="playground"><code class="language-rust edition2024">use std::fs;
+use std::io;
+
+fn main() -&gt; io::Result&lt;()&gt; {
+    let dir = std::env::temp_dir().join("rust_book_walk");
+    fs::create_dir_all(dir.join("sub"))?;
+    fs::write(dir.join("a.txt"), "1")?;
+    fs::write(dir.join("sub/b.txt"), "2")?;
+
+    let mut names: Vec&lt;String&gt; = Vec::new();
+    for entry in fs::read_dir(&amp;dir)? {
+        let entry = entry?;
+        let kind = if entry.file_type()?.is_dir() { "dir" } else { "file" };
+        names.push(format!("{kind}:{}", entry.file_name().to_string_lossy()));
+    }
+    names.sort(); // ترتیب read_dir مشخص نیست
+    assert_eq!(names, ["dir:sub", "file:a.txt"]);
+
+    fs::remove_dir_all(&amp;dir)
+}</code></pre>
+<blockquote>
+<p>برای پیمایش بازگشتی پوشه‌ها از crate ی <code>walkdir</code> استفاده کنید.</p>
+</blockquote>
+<h2 id="آرگومانهای-خط-فرمان-و-متغیرهای-محیطی"><a class="header" href="#آرگومانهای-خط-فرمان-و-متغیرهای-محیطی">آرگومان‌های خط فرمان و متغیرهای محیطی</a></h2>
+<pre class="playground"><code class="language-rust edition2024">use std::env;
+
+fn main() {
+    // آرگومان‌ها: args().next() نام برنامه است
+    let args: Vec&lt;String&gt; = env::args().collect();
+    println!("{} آرگومان", args.len());
+
+    // اگر آرگومان غیر UTF-8 ممکن است برسد: args_os()
+    for a in env::args().skip(1) {
+        println!("arg: {a}");
+    }
+
+    // متغیر محیطی
+    match env::var("HOME") {
+        Ok(v) =&gt; println!("HOME={v}"),
+        Err(env::VarError::NotPresent) =&gt; println!("HOME تنظیم نیست"),
+        Err(e) =&gt; println!("{e}"),
+    }
+    let level = env::var("LOG_LEVEL").unwrap_or_else(|_| "info".to_string());
+    println!("{level}");
+
+    // مسیر جاری
+    println!("{}", env::current_dir().unwrap().display());
+}</code></pre>
+<p>برای برنامه‌ی جدی از <a href="cli-clap.html">clap</a> به‌جای پردازش دستی آرگومان استفاده کنید.</p>
+<h2 id="کد-خروج-برنامه"><a class="header" href="#کد-خروج-برنامه">کد خروج برنامه</a></h2>
+<pre class="playground"><code class="language-rust no_run edition2024">use std::process::ExitCode;
+
+fn run() -&gt; Result&lt;(), String&gt; {
+    Err("چیزی خراب شد".to_string())
+}
+
+fn main() -&gt; ExitCode {
+    match run() {
+        Ok(()) =&gt; ExitCode::SUCCESS,
+        Err(e) =&gt; {
+            eprintln!("خطا: {e}");
+            ExitCode::from(2) // کد دلخواه
+        }
+    }
+}</code></pre>
+<ul>
+<li><code>ExitCode</code> به شما اجازه می‌دهد destructor ها اجرا شوند و برنامه تمیز بسته شود.</li>
+<li><code>std::process::exit(code)</code> فوراً خارج می‌شود و <strong>Drop اجرا نمی‌شود</strong> (بافرهای نوشته‌نشده می‌توانند از بین بروند).</li>
+<li><code>fn main() -&gt; Result&lt;(), E&gt;</code> هم ممکن است؛ در صورت <code>Err</code>، خطا با <code>Debug</code> چاپ می‌شود و کد خروج ۱ است.</li>
+</ul>
+<h2 id="اجرای-برنامهی-دیگر"><a class="header" href="#اجرای-برنامهی-دیگر">اجرای برنامه‌ی دیگر</a></h2>
+<pre class="playground"><code class="language-rust edition2024">use std::process::Command;
+
+fn main() {
+    let out = Command::new("echo").arg("hello").output().expect("اجرا نشد");
+    assert!(out.status.success());
+    assert_eq!(String::from_utf8_lossy(&amp;out.stdout).trim(), "hello");
+}</code></pre>
+<blockquote>
+<p><code>Command</code> هرگز آرگومان‌ها را از طریق shell تفسیر نمی‌کند، پس خطر command injection کمتر از <code>system()</code> در C است؛ ولی اگر <code>Command::new("sh").arg("-c").arg(user_input)</code> بنویسید، دوباره آسیب‌پذیر می‌شوید.</p>
+</blockquote>
+<h2 id="خلاصه"><a class="header" href="#خلاصه">خلاصه</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>نیاز</th><th>ابزار</th></tr>
+</thead>
+<tbody>
+<tr><td>ساخت رشته</td><td><code>format!</code>، <code>write!</code> به <code>String</code></td></tr>
+<tr><td>چاپ سریع‌ترین</td><td><code>stdout().lock()</code> + <code>BufWriter</code></td></tr>
+<tr><td>خواندن خط</td><td><code>read_line</code> یا <code>lines()</code> روی <code>BufRead</code></td></tr>
+<tr><td>تست‌پذیری</td><td>توابع را روی <code>impl BufRead</code> / <code>impl Write</code> بنویسید</td></tr>
+<tr><td>فایل کوچک</td><td><code>fs::read_to_string</code> / <code>fs::write</code></td></tr>
+<tr><td>فایل بزرگ</td><td><code>BufReader</code> / <code>BufWriter</code></td></tr>
+<tr><td>مسیر</td><td><code>Path</code> / <code>PathBuf</code>، نه الحاق رشته</td></tr>
+<tr><td>آرگومان</td><td><code>env::args</code> یا <code>clap</code></td></tr>
+<tr><td>خروج</td><td><code>ExitCode</code></td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="تمرین"><a class="header" href="#تمرین">تمرین</a></h2>
+<ol>
+<li>جدولی از اعداد ۱ تا ۱۰ با ستون‌های مربع، مکعب و ریشه‌ی دوم (۳ رقم اعشار) و تراز راست چاپ کنید.</li>
+<li>نوع <code>Matrix</code> را <code>Display</code> کنید طوری که <code>{:&gt;6.2}</code> را برای هر عنصر رعایت کند (راهنمایی: <code>f.precision()</code> و <code>f.width()</code>).</li>
+<li>تابعی بنویسید که از <code>impl BufRead</code> متن بگیرد و تعداد کلمات هر خط را به <code>impl Write</code> بنویسد؛ برایش تست با <code>Cursor</code> و <code>Vec&lt;u8&gt;</code> بنویسید.</li>
+<li>برنامه‌ای بنویسید که مسیر یک پوشه را بگیرد و فایل‌ها را بر اساس اندازه مرتب چاپ کند.</li>
+<li>برنامه‌ای بنویسید که با <code>OpenOptions</code> هر بار اجرا یک خط با زمان به فایل لاگ اضافه کند (از <code>std::time::SystemTime</code> استفاده کنید).</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="06-control-flow.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="07-ownership.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="06-control-flow.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="07-ownership.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
