@@ -57,6 +57,11 @@
 - [Async و await](26-async.md)
 - [Unsafe Rust](27-unsafe.md)
 
+# Rust در دنیای واقعی
+
+- [Cargo پیشرفته](cargo-advanced.md)
+- [ساخت REST API با Axum](web-axum.md)
+
 # پروژه عملی
 
 - [پروژه: ساخت ابزار جستجوی متن (mini grep)](28-project-grep.md)

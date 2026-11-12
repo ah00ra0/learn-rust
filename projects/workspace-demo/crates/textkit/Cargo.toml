@@ -1,0 +1,17 @@
+[package]
+name = "textkit"
+description = "Small text utilities used to demonstrate Cargo workspaces"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+serde = { workspace = true, optional = true }
+
+[dev-dependencies]
+serde_json.workspace = true
+
+[features]
+default = []
+# با فعال شدن این feature نوع Stats قابلیت Serialize می‌گیرد
+serde = ["dep:serde"]
